@@ -1,0 +1,35 @@
+package com.java.quiz;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class FinalResult {
+	
+	public static void finalResult()
+	{
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+			Statement smt=con.createStatement();
+		ResultSet set=	smt.executeQuery("select id,Fname,Lname,marks from studentinfo,result where studentinfo.id=result.rid");
+		
+			 while(set.next())
+			 {
+				String id = set.getString("id"+"   ");
+				int m= set.getInt("Marks");
+				System.out.print(id);
+				System.out.println(m);
+				}
+			 smt.close();
+				con.close();
+			 }
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+	}
+	}
+
+

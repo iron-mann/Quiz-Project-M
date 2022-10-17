@@ -1,0 +1,90 @@
+package com.java.quiz;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class FinalResult {
+	
+	public static void finalResult()
+	{
+		        System.out.println("PLease eneter your Id");
+				Scanner sca=new Scanner(System.in);
+				String id= sca.next();
+				System.out.println();
+				System.out.println("Please enter your password");
+				String pas=sca.next();
+				
+				try {
+					Class.forName("com.mysql.cj.jdbc.Driver");
+					Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+					Statement smt=con.createStatement();
+				ResultSet set=	smt.executeQuery("select * from studentinfo ");
+				boolean flag =true;
+					 while(set.next())
+					 {
+						String id1 =set.getString(1);
+						String pas1=set.getString(4);
+						
+						if(id.equals(id1)&& pas.equals(pas1))
+						{
+							try
+							{
+								
+							Class.forName("com.mysql.cj.jdbc.Driver");
+							Connection conn=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+							Statement smtt=conn.createStatement();
+						ResultSet set1=	smtt.executeQuery("select studentinfo.id,studentinfo.Fname,studentinfo.Lname,result.marks from studentinfo join result on studentinfo.id=result.rid where studentinfo.id='id.toString()' ");
+						
+								System.out.print("ID");
+								System.out.print("\t First Name");
+								System.out.print("\t Last Name");
+								System.out.println("\t Marks");
+						
+							 while(set1.next())
+							 {
+								 
+								String idr = set1.getString("id");
+								int m= set1.getInt("Marks");
+								String fname=set1.getString("Fname");
+								String Lname=set1.getString("Lname");
+								
+							
+								System.out.print(idr);
+								System.out.print("\t  "+fname);
+								System.out.print("\t "+Lname);
+								System.out.println("\t  " +m);
+								}
+							 smtt.close();
+							 conn.close();
+							 }
+							catch(Exception e)
+							{
+								e.printStackTrace();
+							}
+							flag=false;
+					}
+							
+							
+						}
+					 if(flag)
+						{
+							System.out.println("Enter correct UserID & Password");
+						}
+				smt.close();
+				con.close();
+				}
+					catch(Exception e)
+					{
+						e.printStackTrace();
+					}
+			}
+
+}
+
+
+
+
+

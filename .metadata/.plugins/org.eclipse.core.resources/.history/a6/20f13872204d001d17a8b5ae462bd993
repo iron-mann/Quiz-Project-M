@@ -1,0 +1,52 @@
+package com.java.quiz;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Question {
+	
+	public static void question()
+	{
+	
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+		Statement smt=con.createStatement();
+		String q= "create table ques(No int primary key not null,question varchar (255) ,answer varchar(255))";
+		smt.executeUpdate(q);
+		System.out.println("Question table created");
+		
+	}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+}
+public static void fillQuestion()
+{
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+		PreparedStatement psmt=con.prepareStatement("insert into ques (No,question,answer) values (?,?,?)");
+		Scanner sce=new Scanner(System.in);
+		
+		//Question 1
+		psmt.setInt(1,1);	
+		psmt.setString(2,"Java is a Successor to which programming language?"+"\n(a)B\n(b)7\n(c)C++\n(d)D\n" );	
+		psmt.setString(3,"c" );
+	    psmt.executeUpdate();
+		
+System.out.println("Question 1 inserted");
+		
+	}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+}
+}
+
+

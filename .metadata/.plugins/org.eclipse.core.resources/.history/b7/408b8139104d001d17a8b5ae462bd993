@@ -1,0 +1,86 @@
+package com.java.quiz;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Login {
+	
+	public static void login()
+	{
+		System.out.println("Welcome to Quiz Competition");
+		
+		System.out.println("Are you already registered if Yes press 1 if No press 2");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int a= sc.nextInt();
+		
+		if (a==1)
+		{
+			
+		}
+		else
+		{
+			eUser();
+			
+		}
+	}
+public static void alreadyUser()
+{
+	System.out.println("PLease eneter your Id");
+	Scanner sca=new Scanner(System.in);
+	String id= sca.next();
+	System.out.println("Please enter your password");
+	String pas=sca.next();
+	
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+		
+		
+	
+		
+	}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+}
+	
+	
+	
+
+public static void eUser()
+{
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+		PreparedStatement psmt=con.prepareStatement("insert into studentinfo (id,Fname,Lname,password) values (?,?,?,?)");
+		Scanner sce=new Scanner(System.in);
+		System.out.println("PLease enter ID to be genarated");
+		String id = sce.next();
+		System.out.println("PLease enter First Name");
+		String Fname = sce.next();
+		System.out.println("PLease enter Last Name");
+		String Lname = sce.next();
+		System.out.println("PLease enter Password");
+		String password = sce.next();
+		
+		psmt.setString(1, id);	
+		psmt.setString(2, Fname);	
+		psmt.setString(3, Lname);
+		psmt.setString(4, password);	
+		psmt.executeUpdate();
+		
+System.out.println("Registered Successfully");
+		
+	}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+}
+}

@@ -1,0 +1,18 @@
+package com.java.quiz;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Connection1 {
+	public static void connection1()
+	{
+		try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+		
+	}
+		catch(Exception e)
+		{
+			
+		}
+}

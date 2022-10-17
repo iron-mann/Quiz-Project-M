@@ -1,0 +1,24 @@
+package com.java.quiz;
+
+public class Main {
+
+	public static void main(String[] args) {
+		//Connection1.connection();//to create Student info table
+		//Login.eUser();// to insert new user data into database
+		//Login.alreadyUser();
+		//Question.question();//to create question tables
+       //Question.fillQuestion();//to fill the question in database
+		//Result.checkans();
+		
+		//Login.login(); //Program run method
+		
+		//Result.resultTable();// to create result table id & marks
+		//Result.resultEntry();// to insert value in result table
+		//FinalResult.finalResult();//to show final result name id last name marks
+		
+		AllResult.allResult();
+		
+		
+	}
+
+}

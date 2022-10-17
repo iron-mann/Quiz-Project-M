@@ -1,0 +1,52 @@
+package com.java.quiz;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class Login {
+	
+	public static void login()
+	{
+		System.out.println("Welcome to Quiz Competition");
+		
+		System.out.println("Are you already registered if Yes press 1 if No press 2");
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int a= sc.nextInt();
+		
+		if (a==1)
+		{
+			
+		}
+	}
+public static void alreadyUser()
+{
+	System.out.println("PLease eneter your Id");
+	Scanner sca=new Scanner(System.in);
+	String id= sca.next();
+	System.out.println("Please enter your password");
+	String pas=sca.next();
+	
+	
+	
+}
+public static void eUser()
+{
+	try {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con=DriverManager.getConnection("JDBC:mysql://localhost:3306/studentdb","root","Dream@54321");
+		PreparedStatement psmt=con.prepareStatement(q1);
+				String q1 ="insert into studentinfo (?,?,?,?)";
+		
+		
+	}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+}
+}
