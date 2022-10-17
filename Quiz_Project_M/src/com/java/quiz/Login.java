@@ -37,6 +37,10 @@ public class Login {
 		{
 			AllResult.allResult();
 		}
+		else
+		{
+			System.out.println("Please Make proper selection");
+		}
 	}
 public static void alreadyUser()
 {
@@ -75,7 +79,7 @@ public static void alreadyUser()
 	}
 		catch(Exception e)
 		{
-			e.printStackTrace();
+			System.out.println("Please Enter correct ID and Password");
 		}
 }
 	

@@ -34,7 +34,7 @@ public class Result {
 			{
 				marks++;
 			}
-						
+							
 	}
 		 System.out.println("Your Exam Is completed");
 		 
@@ -64,6 +64,7 @@ public class Result {
 			e.printStackTrace();
 		}
 	}
+	
 	
 	public static void resultTable()
 	{
